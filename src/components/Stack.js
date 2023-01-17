@@ -26,7 +26,7 @@ export default function STack() {
 	// const { scale } = useSpring({ scale: anim ? 1.5 : 1 });
 
 	const reactAnim = useSpring({ scale: animReact ? 1.7 : 1, rotationY: animReact ? 15 : 0 });
-	const nodeAnim = useSpring({ scale: animNode ? 1.7 : 1, rotationY: animNode ? 16 : 0 });
+	const nodeAnim = useSpring({ scale: animNode ? 1.7 : 1, rotationY: animNode ? 18.8 : 0, positionNodeText: animNode ? -0.42 : -0.48 });
 	const threetAnim = useSpring({ scale: animThree ? 1.7 : 1, rotationY: animThree ? 15 : 0 });
 	const mongoAnim = useSpring({ scale: animMongo ? 1.7 : 1, rotationY: animMongo ? 15 : 0 });
 
@@ -95,7 +95,9 @@ export default function STack() {
 					receiveShadow
 					geometry={nodes.NodeTextStack.geometry}
 					material={materials['Material.002']}
-					position={[0.07, 1.05, -0.48]}
+					position-x={0.07}
+					position-y={1.05}
+					position-z={nodeAnim.positionNodeText}
 					scale={nodeAnim.scale}
 					rotation-y={nodeAnim.rotationY}
 					onPointerEnter={() => {

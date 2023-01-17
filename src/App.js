@@ -8,7 +8,7 @@ function App() {
 		<>
 			<Perf position="top-left"></Perf>
 			<color
-				args={['black']}
+				args={['#101919']}
 				attach={'background'}
 			></color>
 			<Environment preset="sunset">
