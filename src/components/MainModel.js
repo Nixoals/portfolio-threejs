@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { MeshReflectorMaterial, useGLTF, useMatcapTexture } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
-import { useControls } from 'leva';
+
 import Stack from './Stack';
 import Screen from './Screen';
 
