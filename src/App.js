@@ -20,11 +20,14 @@ function App() {
 			</Environment>
 			<OrbitControls
 				makeDefault
+				zoomSpeed={0.4}
+				maxDistance={50}
 				target={[3.5, 4.5, -3]}
 				maxPolarAngle={1.65}
 				minAzimuthAngle={-1.5}
 				maxAzimuthAngle={1.5}
 				enablePan={false}
+				rotateSpeed={0.8}
 			/>
 			<MainModel></MainModel>
 		</>
