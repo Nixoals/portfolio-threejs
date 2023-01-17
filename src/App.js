@@ -24,7 +24,7 @@ function App() {
 				maxPolarAngle={1.65}
 				minAzimuthAngle={-1.5}
 				maxAzimuthAngle={1.5}
-				enablePan={true}
+				enablePan={false}
 			/>
 			<MainModel></MainModel>
 		</>

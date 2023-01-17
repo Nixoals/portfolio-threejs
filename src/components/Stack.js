@@ -63,10 +63,14 @@ export default function STack() {
 					scale={threetAnim.scale}
 					rotation-y={threetAnim.rotationY}
 					onPointerEnter={() => {
+						document.body.style.cursor = 'pointer';
 						if (!animNode && !animMongo && !animReact && !animThree) {
 							handleAnimDuration(setAnimThree);
 							setAnimThree(true);
 						}
+					}}
+					onPointerLeave={() => {
+						document.body.style.cursor = 'default';
 					}}
 				>
 					<meshBasicMaterial></meshBasicMaterial>
@@ -98,10 +102,14 @@ export default function STack() {
 					scale={nodeAnim.scale}
 					rotation-y={nodeAnim.rotationY}
 					onPointerEnter={() => {
+						document.body.style.cursor = 'pointer';
 						if (!animNode && !animMongo && !animReact && !animThree) {
 							handleAnimDuration(setAnimNode);
 							setAnimNode(true);
 						}
+					}}
+					onPointerLeave={() => {
+						document.body.style.cursor = 'default';
 					}}
 				>
 					<meshBasicMaterial
@@ -119,10 +127,14 @@ export default function STack() {
 					scale={nodeAnim.scale}
 					rotation-y={nodeAnim.rotationY}
 					onPointerEnter={() => {
+						document.body.style.cursor = 'pointer';
 						if (!animNode && !animMongo && !animReact && !animThree) {
 							handleAnimDuration(setAnimNode);
 							setAnimNode(true);
 						}
+					}}
+					onPointerLeave={() => {
+						document.body.style.cursor = 'default';
 					}}
 				>
 					<meshBasicMaterial
@@ -156,10 +168,14 @@ export default function STack() {
 					scale={mongoAnim.scale}
 					rotation-y={mongoAnim.rotationY}
 					onPointerEnter={() => {
+						document.body.style.cursor = 'pointer';
 						if (!animNode && !animMongo && !animReact && !animThree) {
 							handleAnimDuration(setAnimMongo);
 							setAnimMongo(true);
 						}
+					}}
+					onPointerLeave={() => {
+						document.body.style.cursor = 'default';
 					}}
 				>
 					<meshBasicMaterial
@@ -194,10 +210,14 @@ export default function STack() {
 					scale={reactAnim.scale}
 					rotation-y={reactAnim.rotationY}
 					onPointerEnter={() => {
+						document.body.style.cursor = 'pointer';
 						if (!animNode && !animMongo && !animReact && !animThree) {
 							handleAnimDuration(setAnimReact);
 							setAnimReact(true);
 						}
+					}}
+					onPointerLeave={() => {
+						document.body.style.cursor = 'default';
 					}}
 				>
 					<meshBasicMaterial

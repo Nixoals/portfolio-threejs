@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { MeshReflectorMaterial, useGLTF } from '@react-three/drei';
+import { MeshReflectorMaterial, useGLTF, useMatcapTexture } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { useControls } from 'leva';
@@ -8,7 +8,7 @@ import Screen from './Screen';
 
 export default function ModelV2(props) {
 	const { nodes, materials } = useGLTF('/models/room.gltf');
-
+	const [material] = useMatcapTexture('9B9994_E1E0DB_474643_544C4C', 1024);
 	const stoolRef = useRef();
 
 	useFrame((state, delta) => {
@@ -36,7 +36,9 @@ export default function ModelV2(props) {
 				geometry={nodes.Desk.geometry}
 				material={materials.desk}
 				position={[0.36, 0.51, -0.3]}
-			/>
+			>
+				<meshMatcapMaterial matcap={material}></meshMatcapMaterial>
+			</mesh>
 
 			<mesh
 				name="Keyboard"
