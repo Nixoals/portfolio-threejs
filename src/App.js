@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { Environment, Lightformer, OrbitControls } from '@react-three/drei';
+import MainModel from './components/MainModel';
+import { Perf } from 'r3f-perf';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Perf position="top-left"></Perf>
+			<color
+				args={['black']}
+				attach={'background'}
+			></color>
+			<Environment preset="sunset">
+				<Lightformer
+					position={[-5, 0, 0]}
+					scale={10}
+					color={[1, 0, 0]}
+				/>
+			</Environment>
+			<OrbitControls
+				makeDefault
+				target={[0.55, 0.3, -0.6]}
+				maxPolarAngle={1.65}
+				minAzimuthAngle={-1.5}
+				maxAzimuthAngle={1.5}
+				enablePan={false}
+			/>
+			<MainModel></MainModel>
+		</>
+	);
 }
 
 export default App;
