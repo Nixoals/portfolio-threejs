@@ -1,40 +1,27 @@
 import { Html, useGLTF } from '@react-three/drei';
-import { useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { useState, useRef } from 'react';
 import gsap from 'gsap';
+
+import * as THREE from 'three';
 
 export default function Screen() {
 	const screenRef = useRef();
 	const { camera } = useThree();
 	const { nodes } = useGLTF('/models/room.gltf');
+	const vec = new THREE.Vector3();
 
 	const [enter, setIsEnter] = useState(false);
 
-	// animate camera when mouse enter the iframe
-	const handleEnter = () => {
-		const cameraPosition = camera.position;
-		const x = cameraPosition.x;
-		const y = cameraPosition.y;
-		const z = cameraPosition.z;
+	useFrame((state) => {
+		if (enter) {
+			state.camera.position.lerp(vec.set(3.5, 5, 1.2), 0.02);
+		}
+	});
 
-		const tl = gsap.timeline();
-		tl.fromTo(
-			camera.position.set(),
-			{
-				x: x,
-				y: y,
-				z: z,
-			},
-			{
-				x: 0.5,
-				y: 0.3,
-				z: 0,
-				duration: 0.8,
-			}
-		);
-	};
-	// animate camera when mouse Leave the iframe
 	const handleLeave = () => {
+		camera.updateProjectionMatrix();
+		camera.updateMatrix();
 		const cameraPosition = camera.position;
 		const x = cameraPosition.x;
 		const y = cameraPosition.y;
@@ -49,15 +36,18 @@ export default function Screen() {
 					z: z,
 				},
 				{
-					x: -1.5,
-					y: 1,
-					z: 1.5,
-					duration: 0.8,
+					x: -7.15,
+					y: 7.19,
+					z: 7.81,
+					duration: 0.9,
 				}
 			);
 		}
 		setIsEnter(false);
+		camera.updateProjectionMatrix();
+		camera.updateMatrix();
 	};
+
 	return (
 		<>
 			<mesh
@@ -70,17 +60,15 @@ export default function Screen() {
 				position={[0.76, 1.11, -0.49]}
 				onPointerEnter={() => {
 					setIsEnter(true);
-					handleEnter();
 				}}
 				onPointerMissed={handleLeave}
 			>
 				<Html
-					onOcclude={(visible) => console.log(visible)}
 					transform
 					className="screen"
-					distanceFactor={1.8}
+					distanceFactor={0.18}
 					position={[0, 0, 0]}
-					scale={0.1}
+					scale={1}
 				>
 					<iframe
 						src="https://nicolas-godeau-dev.netlify.app/"

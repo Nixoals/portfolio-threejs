@@ -8,12 +8,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<Canvas
+			dpr={[1, 2]}
 			flat
 			camera={{
 				fov: 45,
-				near: 0.1,
-				far: 2000,
-				position: [-1.5, 1, 1.5],
+				near: 0.5,
+				far: 1000,
+				position: [-8.15, 8.19, 7.81],
 			}}
 		>
 			<App />

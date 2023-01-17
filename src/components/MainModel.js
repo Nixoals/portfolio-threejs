@@ -21,6 +21,7 @@ export default function ModelV2(props) {
 			{...props}
 			dispose={null}
 			position={[-0.2, -0.8, -0.2]}
+			scale={5}
 		>
 			<EffectComposer>
 				<Bloom></Bloom>
@@ -116,4 +117,4 @@ export default function ModelV2(props) {
 	);
 }
 
-useGLTF.preload('/toonPortfolioV2.1.gltf');
+useGLTF.preload('/models/room.gltf');
