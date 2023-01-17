@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react';
-import { MeshReflectorMaterial, Html, Float, useGLTF } from '@react-three/drei';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useRef } from 'react';
+import { MeshReflectorMaterial, useGLTF } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
-import gsap from 'gsap';
+
 import Stack from './Stack';
 import Screen from './Screen';
 

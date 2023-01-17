@@ -1,14 +1,13 @@
 import { Text, Float, useGLTF, meshBounds } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useSpring, animated } from '@react-spring/three';
 
 export default function STack() {
 	const { nodes, materials } = useGLTF('/models/room.gltf');
 	const reactStackRef = useRef();
 	const threejsStackRef = useRef();
-	const mongoRef = useRef();
-	const nodejsRef = useRef();
+
 	const [animNode, setAnimNode] = useState(false);
 	const [animReact, setAnimReact] = useState(false);
 	const [animThree, setAnimThree] = useState(false);
@@ -22,8 +21,6 @@ export default function STack() {
 		reactStackRef.current.rotation.y += delta * 2;
 		reactStackRef.current.rotation.z += delta * 2;
 	});
-
-	// const { scale } = useSpring({ scale: anim ? 1.5 : 1 });
 
 	const reactAnim = useSpring({ scale: animReact ? 1.7 : 1, rotationY: animReact ? 15 : 0 });
 	const nodeAnim = useSpring({ scale: animNode ? 1.7 : 1, rotationY: animNode ? 18.8 : 0, positionNodeText: animNode ? -0.42 : -0.48 });
@@ -50,9 +47,9 @@ export default function STack() {
 				position={[0.73, 0.87, -0.42]}
 			/>
 			<Float
-				speed={5} // Animation speed, defaults to 1
-				rotationIntensity={0.1} // XYZ rotation intensity, defaults to 1
-				floatIntensity={2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+				speed={5}
+				rotationIntensity={0.1}
+				floatIntensity={2}
 				floatingRange={[0, 0.03]}
 			>
 				<animated.mesh
@@ -84,9 +81,9 @@ export default function STack() {
 				</Text>
 			)}
 			<Float
-				speed={5} // Animation speed, defaults to 1
-				rotationIntensity={0.1} // XYZ rotation intensity, defaults to 1
-				floatIntensity={2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+				speed={5}
+				rotationIntensity={0.1}
+				floatIntensity={2}
 				floatingRange={[0, 0.03]}
 			>
 				<animated.mesh
@@ -144,9 +141,9 @@ export default function STack() {
 				</Text>
 			)}
 			<Float
-				speed={5} // Animation speed, defaults to 1
-				rotationIntensity={0.1} // XYZ rotation intensity, defaults to 1
-				floatIntensity={2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+				speed={5}
+				rotationIntensity={0.1}
+				floatIntensity={2}
 				floatingRange={[0, 0.03]}
 			>
 				<animated.mesh
@@ -180,9 +177,9 @@ export default function STack() {
 				</Text>
 			)}
 			<Float
-				speed={5} // Animation speed, defaults to 1
-				rotationIntensity={0.1} // XYZ rotation intensity, defaults to 1
-				floatIntensity={2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+				speed={5}
+				rotationIntensity={0.1}
+				floatIntensity={2}
 				floatingRange={[0, 0.03]}
 			>
 				<animated.mesh

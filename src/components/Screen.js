@@ -6,9 +6,11 @@ import gsap from 'gsap';
 export default function Screen() {
 	const screenRef = useRef();
 	const { camera } = useThree();
-	const { nodes, materials } = useGLTF('/models/room.gltf');
+	const { nodes } = useGLTF('/models/room.gltf');
 
 	const [enter, setIsEnter] = useState(false);
+
+	// animate camera when mouse enter the iframe
 	const handleEnter = () => {
 		const cameraPosition = camera.position;
 		const x = cameraPosition.x;
@@ -31,7 +33,7 @@ export default function Screen() {
 			}
 		);
 	};
-
+	// animate camera when mouse Leave the iframe
 	const handleLeave = () => {
 		const cameraPosition = camera.position;
 		const x = cameraPosition.x;
@@ -73,13 +75,11 @@ export default function Screen() {
 				onPointerMissed={handleLeave}
 			>
 				<Html
-					// occlude="raycast"
 					onOcclude={(visible) => console.log(visible)}
 					transform
 					className="screen"
 					distanceFactor={1.8}
 					position={[0, 0, 0]}
-					// rotation-y={Math.PI / 2}
 					scale={0.1}
 				>
 					<iframe
