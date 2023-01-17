@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { MeshReflectorMaterial, useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
-
+import { useControls } from 'leva';
 import Stack from './Stack';
 import Screen from './Screen';
 
@@ -28,6 +28,7 @@ export default function ModelV2(props) {
 			</EffectComposer>
 			<Stack></Stack>
 			<Screen></Screen>
+
 			<mesh
 				name="Desk"
 				castShadow

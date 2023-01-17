@@ -13,9 +13,9 @@ export default function Screen() {
 
 	const [enter, setIsEnter] = useState(false);
 
-	useFrame((state) => {
+	useFrame((state, delta) => {
 		if (enter) {
-			state.camera.position.lerp(vec.set(3.5, 5, 1.2), 0.02);
+			state.camera.position.lerp(vec.set(3.5, 5, 1.2), delta * 2);
 		}
 	});
 
@@ -57,7 +57,7 @@ export default function Screen() {
 				receiveShadow
 				geometry={nodes.Screen.geometry}
 				material={nodes.Screen.material}
-				position={[0.76, 1.11, -0.49]}
+				position={[0.76, 1.11, -0.48]}
 				onPointerEnter={() => {
 					setIsEnter(true);
 				}}

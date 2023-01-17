@@ -71,15 +71,15 @@ export default function STack() {
 				>
 					<meshBasicMaterial></meshBasicMaterial>
 				</animated.mesh>
+				{animThree && (
+					<Text
+						scale={0.1}
+						position={[1.61, 1.25, -0.35]}
+					>
+						Three.js
+					</Text>
+				)}
 			</Float>
-			{animThree && (
-				<Text
-					scale={0.1}
-					position={[1.61, 1.25, -0.35]}
-				>
-					Three.js
-				</Text>
-			)}
 			<Float
 				speed={5}
 				rotationIntensity={0.1}
@@ -130,16 +130,16 @@ export default function STack() {
 						color={[0.2, 1.6, 0.2]}
 					></meshBasicMaterial>
 				</animated.mesh>
+				{animNode && (
+					<Text
+						scale={0.1}
+						position={[0.06, 1.36, -0.5]}
+						color={[0.2, 1.6, 0.2]}
+					>
+						Node.js
+					</Text>
+				)}
 			</Float>
-			{animNode && (
-				<Text
-					scale={0.1}
-					position={[0.06, 1.36, -0.5]}
-					color={[0.2, 1.6, 0.2]}
-				>
-					Node.js
-				</Text>
-			)}
 			<Float
 				speed={5}
 				rotationIntensity={0.1}
@@ -167,15 +167,15 @@ export default function STack() {
 						color={[0.2, 1.2, 0.2]}
 					></meshBasicMaterial>
 				</animated.mesh>
+				{animMongo && (
+					<Text
+						scale={0.1}
+						position={[1.35, 1.35, -0.49]}
+					>
+						MongoDB
+					</Text>
+				)}
 			</Float>
-			{animMongo && (
-				<Text
-					scale={0.1}
-					position={[1.35, 1.35, -0.49]}
-				>
-					MongoDB
-				</Text>
-			)}
 			<Float
 				speed={5}
 				rotationIntensity={0.1}
@@ -205,15 +205,15 @@ export default function STack() {
 						color={[0.4, 1, 5]}
 					></meshBasicMaterial>
 				</animated.mesh>
+				{animReact && (
+					<Text
+						scale={0.1}
+						position={[-0.14, 1.25, -0.34]}
+					>
+						React
+					</Text>
+				)}
 			</Float>
-			{animReact && (
-				<Text
-					scale={0.1}
-					position={[-0.14, 1.25, -0.34]}
-				>
-					React
-				</Text>
-			)}
 		</>
 	);
 }
