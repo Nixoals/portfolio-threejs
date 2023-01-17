@@ -1,12 +1,12 @@
 import './App.css';
 import { Environment, Lightformer, OrbitControls } from '@react-three/drei';
 import MainModel from './components/MainModel';
-import { Perf } from 'r3f-perf';
+// import { Perf } from 'r3f-perf';
 
 function App() {
 	return (
 		<>
-			<Perf position="top-left"></Perf>
+			{/* <Perf position="top-left"></Perf> */}
 			<color
 				args={['#101919']}
 				attach={'background'}
