@@ -5,7 +5,7 @@ import gsap from 'gsap';
 
 import * as THREE from 'three';
 
-export default function Screen() {
+export default function Screen({ animation }) {
 	const screenRef = useRef();
 	const { camera } = useThree();
 	const { nodes } = useGLTF('/models/room.gltf');
@@ -59,7 +59,9 @@ export default function Screen() {
 				material={nodes.Screen.material}
 				position={[0.76, 1.11, -0.48]}
 				onPointerEnter={() => {
-					setIsEnter(true);
+					if (animation) {
+						setIsEnter(true);
+					}
 				}}
 				onPointerMissed={handleLeave}
 			>
@@ -70,14 +72,16 @@ export default function Screen() {
 					position={[0, 0, 0]}
 					scale={1}
 				>
-					<iframe
-						src="https://nicolas-godeau-dev.netlify.app/"
-						title="portfolio"
-					></iframe>
+					{animation && (
+						<iframe
+							src="https://nicolas-godeau-dev.netlify.app/"
+							title="portfolio"
+						></iframe>
+					)}
 				</Html>
 				<meshStandardMaterial
 					toneMapped={false}
-					color={[2, 2, 2]}
+					color={animation ? [2, 2, 2] : [0.1, 0.1, 0.1]}
 				></meshStandardMaterial>
 			</mesh>
 		</>
