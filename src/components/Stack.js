@@ -53,11 +53,6 @@ export default function STack({ glitchButton, setGlitchButton }) {
 					geometry={nodes.supportStack.geometry}
 					material={materials.supportStack}
 					position={[0.73, 0.87, -0.42]}
-					onClick={() => {
-						if (!glitchButton) {
-							setGlitchButton(true);
-						}
-					}}
 				></mesh>
 			</RigidBody>
 			{/* ThreeJS */}

@@ -1,19 +1,21 @@
 import { useRef } from 'react';
 import { Text, MeshReflectorMaterial, useGLTF, useMatcapTexture } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Bloom, EffectComposer, Glitch, Pixelation } from '@react-three/postprocessing';
 import { GlitchMode } from 'postprocessing';
 import { Physics, RigidBody } from '@react-three/rapier';
 
 import Stack from './Stack';
 import Screen from './Screen';
+import Button from './Button';
 
 export default function ModelV2({ glitchButton, setGlitchButton }) {
 	const { nodes, materials } = useGLTF('/models/room.gltf');
 	const [material] = useMatcapTexture('9B9994_E1E0DB_474643_544C4C', 1024);
 	const stoolRef = useRef();
 	const pixelEffect = useRef();
+	const [faillureAlert, setFaillureAlert] = useState();
 
 	useFrame((state, delta) => {
 		//Stool Rotation
@@ -40,9 +42,16 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 		}
 	}, [glitchButton]);
 
+	useEffect(() => {
+		if (glitchButton) {
+			setTimeout(() => {
+				setFaillureAlert(true);
+			}, 2000);
+		}
+	}, [glitchButton]);
+
 	return (
 		<group
-			// {...props}
 			dispose={null}
 			position={[-0.2, -0.8, -0.2]}
 			scale={5}
@@ -67,7 +76,7 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 					</>
 				)}
 			</EffectComposer>
-			<Physics>
+			<Physics gravity={[-0.9, -18, 0]}>
 				<Stack
 					glitchButton={glitchButton}
 					setGlitchButton={setGlitchButton}
@@ -217,6 +226,10 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 					</mesh>
 				</RigidBody>
 			</Physics>
+			<Button
+				glitchButton={glitchButton}
+				setGlitchButton={setGlitchButton}
+			></Button>
 			<mesh
 				rotation-x={-Math.PI / 2}
 				position-y={-0.02}
@@ -235,7 +248,7 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 					roughness={1}
 				></MeshReflectorMaterial>
 			</mesh>
-			{glitchButton && (
+			{faillureAlert && (
 				<Text
 					position={[0.75, 1.7, -1]}
 					scale={0.2}
@@ -243,7 +256,7 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 					textAlign="center"
 					color={'red'}
 				>
-					TRANSMISSION FAILED
+					TRANSMISSION FAILURE
 				</Text>
 			)}
 		</group>

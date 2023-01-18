@@ -54,9 +54,19 @@ Canvas {
 	font-weight: 300;
 	font-style: normal;
 }
-.internal-error div {
+.server-apache {
 	border-top: solid 1px black;
 	padding-top: 20px;
 	font-size: 18px;
 	font-style: italic;
+}
+.force-reload {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 50px;
+	margin: auto;
+}
+.force-reload button:hover {
+	cursor: pointer;
 }

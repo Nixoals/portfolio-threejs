@@ -15,12 +15,15 @@ function App() {
 				setInternalError(true);
 			}, 12000);
 		}
-	});
+	}, [glitchButton]);
 	return (
 		<>
 			{internalError ? (
 				<>
-					<InternalError></InternalError>
+					<InternalError
+						setInternalError={setInternalError}
+						setGlitchButton={setGlitchButton}
+					></InternalError>
 				</>
 			) : (
 				<>
