@@ -44,7 +44,6 @@ export default function Model({ setGlitchButton }) {
 				rotation-x={capotMove}
 				onClick={(event) => {
 					event.stopPropagation();
-					console.log('clicked');
 					setCapoClicked(!capotClicked);
 				}}
 				onPointerEnter={() => {
