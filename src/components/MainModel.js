@@ -256,7 +256,7 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 					textAlign="center"
 					color={'red'}
 				>
-					TRANSMISSION FAILURE
+					KERNEL PANIC
 				</Text>
 			)}
 		</group>
