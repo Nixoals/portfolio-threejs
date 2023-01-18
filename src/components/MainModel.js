@@ -219,17 +219,15 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 				<RigidBody type="fixed">
 					<mesh
 						scale={[10, 0.3, 10]}
-						position-y={-0.176}
+						position-y={-0.174}
+						// visible={false}
 					>
 						<boxGeometry></boxGeometry>
 						<meshBasicMaterial wireframe></meshBasicMaterial>
 					</mesh>
 				</RigidBody>
 			</Physics>
-			<Button
-				glitchButton={glitchButton}
-				setGlitchButton={setGlitchButton}
-			></Button>
+			<Button setGlitchButton={setGlitchButton}></Button>
 			<mesh
 				rotation-x={-Math.PI / 2}
 				position-y={-0.02}

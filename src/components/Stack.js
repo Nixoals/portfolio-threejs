@@ -280,7 +280,7 @@ export default function STack({ glitchButton, setGlitchButton }) {
 					<RigidBody type="hull">
 						<mesh
 							geometry={nodes.MongoDBStatck.geometry}
-							position={[1.35, 1.05, -0.49]}
+							position={[1.36, 1.05, -0.49]}
 						>
 							<meshBasicMaterial color={'black'}></meshBasicMaterial>
 						</mesh>

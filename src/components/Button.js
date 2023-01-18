@@ -4,23 +4,29 @@ import { useState, useEffect } from 'react';
 
 import { useSpring, animated } from '@react-spring/three';
 
-export default function Model({ glitchButton, setGlitchButton }) {
+export default function Model({ setGlitchButton }) {
 	const { nodes, materials } = useGLTF('/models/button.gltf');
 	const [capotClicked, setCapoClicked] = useState(false);
 	const [buttonClicked, setButtonClicked] = useState(false);
 	const { capotMove } = useSpring({ capotMove: capotClicked ? -Math.PI / 2 : 0 });
-	const { buttonMove } = useSpring({ buttonMove: buttonClicked ? 0.88 : 0.89 });
+	const { buttonMove } = useSpring({ buttonMove: buttonClicked ? 0.88 : 0.89, reverse: true });
 
 	useEffect(() => {
 		if (buttonClicked) {
 			setTimeout(() => {
 				setGlitchButton(true);
-			}, 2000);
+			}, 500);
 		}
 		// eslint-disable-next-line
 	}, [buttonClicked]);
 	return (
-		<group dispose={null}>
+		<group
+			dispose={null}
+			position-x={-0.6}
+			position-z={-0.25}
+			position-y={0.04}
+			scale={0.95}
+		>
 			<mesh
 				castShadow
 				receiveShadow
