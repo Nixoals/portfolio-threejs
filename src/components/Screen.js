@@ -58,9 +58,16 @@ export default function Screen({ animation }) {
 				geometry={nodes.Screen.geometry}
 				position={[0.76, 1.11, -0.48]}
 				onPointerEnter={() => {
-					if (animation) {
-						setIsEnter(true);
+					if (!enter) {
+						if (animation) {
+							setIsEnter(true);
+						}
+					} else {
+						handleLeave();
 					}
+				}}
+				onPointerLeave={(event) => {
+					console.log(event);
 				}}
 				onPointerMissed={handleLeave}
 			>
