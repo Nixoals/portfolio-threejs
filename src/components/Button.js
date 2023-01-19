@@ -15,7 +15,7 @@ export default function Model({ setGlitchButton }) {
 		if (buttonClicked) {
 			setTimeout(() => {
 				setGlitchButton(true);
-			}, 500);
+			}, 100);
 		}
 		// eslint-disable-next-line
 	}, [buttonClicked]);

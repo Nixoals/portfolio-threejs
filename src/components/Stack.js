@@ -60,7 +60,10 @@ export default function STack({ glitchButton, setGlitchButton }) {
 							geometry={nodes.ThreejsStack.geometry}
 							position={[1.61, 1.02, -0.35]}
 						>
-							<meshBasicMaterial color={'black'}></meshBasicMaterial>
+							<meshBasicMaterial
+								toneMapped={false}
+								color={[0.8, 0.8, 0.8]}
+							></meshBasicMaterial>
 						</mesh>
 					</RigidBody>
 				</>
@@ -77,7 +80,6 @@ export default function STack({ glitchButton, setGlitchButton }) {
 						castShadow
 						receiveShadow
 						geometry={nodes.ThreejsStack.geometry}
-						material={materials.screen}
 						position={[1.61, 1.02, -0.35]}
 						scale={threeAnim.scale}
 						rotation-y={threeAnim.rotationY}
@@ -91,7 +93,12 @@ export default function STack({ glitchButton, setGlitchButton }) {
 						onPointerLeave={() => {
 							document.body.style.cursor = 'default';
 						}}
-					></animated.mesh>
+					>
+						<meshBasicMaterial
+							color={[1, 1, 1]}
+							toneMapped={false}
+						></meshBasicMaterial>
+					</animated.mesh>
 					{animThree && (
 						<Text
 							scale={0.1}
@@ -110,7 +117,10 @@ export default function STack({ glitchButton, setGlitchButton }) {
 							geometry={nodes.ReactStack.geometry}
 							position={[-0.14, 1.02, -0.34]}
 						>
-							<meshBasicMaterial color={'black'}></meshBasicMaterial>
+							<meshBasicMaterial
+								toneMapped={false}
+								color={[0.8, 0.8, 0.8]}
+							></meshBasicMaterial>
 						</mesh>
 					</RigidBody>
 				</>
@@ -165,7 +175,10 @@ export default function STack({ glitchButton, setGlitchButton }) {
 							geometry={nodes.NodeTextStack.geometry}
 							position={[0.07, 1.05, -0.48]}
 						>
-							<meshBasicMaterial color={'black'}></meshBasicMaterial>
+							<meshBasicMaterial
+								toneMapped={false}
+								color={[0.8, 0.8, 0.8]}
+							></meshBasicMaterial>
 						</mesh>
 					</RigidBody>
 					<RigidBody type="hull">
@@ -173,7 +186,10 @@ export default function STack({ glitchButton, setGlitchButton }) {
 							geometry={nodes.NodeBaseStack.geometry}
 							position={[0.06, 1.06, -0.5]}
 						>
-							<meshBasicMaterial color={'black'}></meshBasicMaterial>
+							<meshBasicMaterial
+								toneMapped={false}
+								color={[0.8, 0.8, 0.8]}
+							></meshBasicMaterial>
 						</mesh>
 					</RigidBody>
 				</>
@@ -254,7 +270,10 @@ export default function STack({ glitchButton, setGlitchButton }) {
 							geometry={nodes.MongoDBStatck.geometry}
 							position={[1.36, 1.05, -0.49]}
 						>
-							<meshBasicMaterial color={'black'}></meshBasicMaterial>
+							<meshBasicMaterial
+								toneMapped={false}
+								color={[0.8, 0.8, 0.8]}
+							></meshBasicMaterial>
 						</mesh>
 					</RigidBody>
 				</>

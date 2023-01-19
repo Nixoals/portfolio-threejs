@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Text, MeshReflectorMaterial, useGLTF, useMatcapTexture } from '@react-three/drei';
+import { Text, MeshReflectorMaterial, useGLTF, useMatcapTexture, Float } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
 import { Bloom, EffectComposer, Glitch, Pixelation } from '@react-three/postprocessing';
@@ -109,28 +109,62 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 						<meshMatcapMaterial matcap={material}></meshMatcapMaterial>
 					</mesh>
 				</RigidBody>
-				<RigidBody type="fixed">
-					<mesh
-						name="Keyboard"
-						castShadow
-						receiveShadow
-						geometry={nodes.Keyboard.geometry}
-						material={materials['Material.005']}
-						position={[0.78, 0.87, -0.18]}
-					/>
-					<mesh
-						name="keypad"
-						castShadow
-						receiveShadow
-						geometry={nodes.keypad.geometry}
-						position={[0.78, 0.874, -0.19]}
-					>
-						<meshBasicMaterial
-							toneMapped={false}
-							color={[0.5, 0.5, 0.5]}
-						></meshBasicMaterial>
-					</mesh>
-				</RigidBody>
+				{glitchButton ? (
+					<>
+						<RigidBody type="hull">
+							<mesh
+								name="Keyboard"
+								castShadow
+								receiveShadow
+								geometry={nodes.Keyboard.geometry}
+								material={materials['Material.005']}
+								position={[0.78, 0.87, -0.18]}
+							/>
+							<mesh
+								name="keypad"
+								castShadow
+								receiveShadow
+								geometry={nodes.keypad.geometry}
+								position={[0.78, 0.874, -0.19]}
+							>
+								<meshBasicMaterial
+									toneMapped={false}
+									color={[0.5, 0.5, 0.5]}
+								></meshBasicMaterial>
+							</mesh>
+						</RigidBody>
+					</>
+				) : (
+					<>
+						<Float
+							speed={5}
+							rotationIntensity={0.1}
+							floatIntensity={1}
+							floatingRange={[0, 0.01]}
+						>
+							<mesh
+								name="Keyboard"
+								castShadow
+								receiveShadow
+								geometry={nodes.Keyboard.geometry}
+								material={materials['Material.005']}
+								position={[0.78, 0.87, -0.18]}
+							/>
+							<mesh
+								name="keypad"
+								castShadow
+								receiveShadow
+								geometry={nodes.keypad.geometry}
+								position={[0.78, 0.874, -0.19]}
+							>
+								<meshBasicMaterial
+									toneMapped={false}
+									color={[0.5, 0.5, 0.5]}
+								></meshBasicMaterial>
+							</mesh>
+						</Float>
+					</>
+				)}
 				{glitchButton ? (
 					<>
 						<RigidBody type="hull">
@@ -252,6 +286,7 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 					maxWidth={10}
 					textAlign="center"
 					color={'red'}
+					font="./fonts/times.ttf"
 				>
 					KERNEL PANIC
 				</Text>

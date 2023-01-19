@@ -29,7 +29,7 @@ export default function Model({ glitchButton }) {
 				>
 					<meshBasicMaterial
 						toneMapped={false}
-						color={glitchButton ? [5, 0.5, 0.5] : [0.4, 1, 5]}
+						color={glitchButton ? [20, 0.5, 0.5] : [0.4, 1, 5]}
 					></meshBasicMaterial>
 				</mesh>
 				<RigidBody

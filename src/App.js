@@ -34,7 +34,7 @@ function App() {
 							fov: 45,
 							near: 0.5,
 							far: 1000,
-							position: [-8.15, 8.19, 7.81],
+							position: [-6.15, 8.19, 9.81],
 						}}
 					>
 						{/* <Perf position="top-left"></Perf> */}
