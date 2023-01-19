@@ -7,6 +7,13 @@ export default function InternalError({ setInternalError, setGlitchButton }) {
 					<p>The server is Temporarily unable to service your request due to overload or capacity problems. Please never try again to press this little red button. Try to reload, may be it will work!!!</p>
 
 					<div className="server-apache">Apache/2.4.55(Ubuntu) Server fabulousdev.com Port 80</div>
+					<div className="contact-container">
+						<div>For more information contact the CTO</div>
+						<div>Nicolas Godeau</div>
+						<div>nicolasgodeau1@gmail.com</div>
+						<div>+33 650708953</div>
+					</div>
+
 					<div className="force-reload">
 						<button
 							onClick={() => {

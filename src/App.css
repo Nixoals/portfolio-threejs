@@ -68,6 +68,16 @@ Canvas {
 	padding: 50px;
 	margin: auto;
 }
+.force-reload button {
+	font-size: 18px;
+}
 .force-reload button:hover {
 	cursor: pointer;
+}
+
+.contact-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+	font-size: 18px;
 }

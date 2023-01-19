@@ -1,10 +1,8 @@
-import { Text, Float, useGLTF } from '@react-three/drei';
+import { Text, Float, useGLTF, meshBounds } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
 import { useSpring, animated } from '@react-spring/three';
 import { RigidBody } from '@react-three/rapier';
-
-import StackDetails from './StackDetails';
 
 export default function STack({ glitchButton, setGlitchButton }) {
 	const { nodes, materials } = useGLTF('/models/room.gltf');
@@ -15,8 +13,6 @@ export default function STack({ glitchButton, setGlitchButton }) {
 	const [animReact, setAnimReact] = useState(false);
 	const [animThree, setAnimThree] = useState(false);
 	const [animMongo, setAnimMongo] = useState(false);
-
-	// const [glitchButton, setGlitchButton] = useState(false);
 
 	useFrame((state, delta) => {
 		if (!glitchButton) {
@@ -56,134 +52,115 @@ export default function STack({ glitchButton, setGlitchButton }) {
 				></mesh>
 			</RigidBody>
 			{/* ThreeJS */}
-			<StackDetails
-				refStack={threejsStackRef}
-				geometry={nodes.ThreejsStack.geometry}
-				material={materials.screen}
-				SpringAnim={threeAnim}
-				position={[1.61, 1.02, -0.35]}
-				scale={threeAnim.scale}
-				rotation-y={threeAnim.rotationY}
-				text={'Three.js'}
-				setter={setAnimThree}
-				anim={animThree}
-				animNode={animNode}
-				setAnimNode={setAnimNode}
-				animMongo={animMongo}
-				setAnimMongo={setAnimMongo}
-				animReact={animReact}
-				setAnimReact={setAnimReact}
-				animThree={animThree}
-				setAnimThree={setAnimThree}
-				physicsType={glitchButton}
-			></StackDetails>
-			{/* react */}
-			<StackDetails
-				refStack={reactStackRef}
-				geometry={nodes.ReactStack.geometry}
-				material={materials.screen}
-				SpringAnim={reactAnim}
-				position={[-0.14, 1.02, -0.34]}
-				scale={reactAnim.scale}
-				rotation-y={reactAnim.rotationY}
-				color={[0.4, 1, 5]}
-				text={'React'}
-				setter={setAnimReact}
-				anim={animReact}
-				animNode={animNode}
-				setAnimNode={setAnimNode}
-				animMongo={animMongo}
-				setAnimMongo={setAnimMongo}
-				animReact={animReact}
-				setAnimReact={setAnimReact}
-				animThree={animThree}
-				setAnimThree={setAnimThree}
-				physicsType={glitchButton}
-			></StackDetails>
 
-			{/* nodeJS Stack */}
-
-			{/* <Float
-				speed={5}
-				rotationIntensity={0.1}
-				floatIntensity={2}
-				floatingRange={[0, 0.03]}
-			>
-				<animated.mesh
-					raycast={meshBounds}
-					ref={reactStackRef}
-					name="ReactStack"
-					castShadow
-					receiveShadow
-					geometry={nodes.ReactStack.geometry}
-					material={materials.react}
-					position={[-0.14, 1.02, -0.34]}
-					scale={reactAnim.scale}
-					rotation-y={reactAnim.rotationY}
-					onPointerEnter={() => {
-						document.body.style.cursor = 'pointer';
-						if (!animNode && !animMongo && !animReact && !animThree) {
-							handleAnimDuration(setAnimReact);
-							setAnimReact(true);
-						}
-					}}
-					onPointerLeave={() => {
-						document.body.style.cursor = 'default';
-					}}
+			{glitchButton ? (
+				<>
+					<RigidBody colliders="hull">
+						<mesh
+							geometry={nodes.ThreejsStack.geometry}
+							position={[1.61, 1.02, -0.35]}
+						>
+							<meshBasicMaterial color={'black'}></meshBasicMaterial>
+						</mesh>
+					</RigidBody>
+				</>
+			) : (
+				<Float
+					speed={5}
+					rotationIntensity={0.1}
+					floatIntensity={2}
+					floatingRange={[0, 0.03]}
 				>
-					<meshBasicMaterial
-						toneMapped={false}
-						color={[0.4, 1, 5]}
-					></meshBasicMaterial>
-				</animated.mesh>
-				{animReact && (
-					<Text
-						scale={0.1}
-						position={[-0.14, 1.25, -0.34]}
+					<animated.mesh
+						ref={threejsStackRef}
+						name="ThreejsStack"
+						castShadow
+						receiveShadow
+						geometry={nodes.ThreejsStack.geometry}
+						material={materials.screen}
+						position={[1.61, 1.02, -0.35]}
+						scale={threeAnim.scale}
+						rotation-y={threeAnim.rotationY}
+						onPointerEnter={() => {
+							document.body.style.cursor = 'pointer';
+							if (!animNode && !animMongo && !animReact && !animThree) {
+								handleAnimDuration(setAnimThree);
+								setAnimThree(true);
+							}
+						}}
+						onPointerLeave={() => {
+							document.body.style.cursor = 'default';
+						}}
 					>
-						React
-					</Text>
-				)}
-			</Float> */}
+						<meshBasicMaterial></meshBasicMaterial>
+					</animated.mesh>
+					{animThree && (
+						<Text
+							scale={0.1}
+							position={[1.61, 1.25, -0.35]}
+						>
+							Three.js
+						</Text>
+					)}
+				</Float>
+			)}
 
-			{/* <Float
-				speed={5}
-				rotationIntensity={0.1}
-				floatIntensity={2}
-				floatingRange={[0, 0.03]}
-			>
-				<animated.mesh
-					ref={threejsStackRef}
-					name="ThreejsStack"
-					castShadow
-					receiveShadow
-					geometry={nodes.ThreejsStack.geometry}
-					material={materials.screen}
-					position={[1.61, 1.02, -0.35]}
-					scale={threeAnim.scale}
-					rotation-y={threeAnim.rotationY}
-					onPointerEnter={() => {
-						document.body.style.cursor = 'pointer';
-						if (!animNode && !animMongo && !animReact && !animThree) {
-							handleAnimDuration(setAnimThree);
-							setAnimThree(true);
-						}
-					}}
-					onPointerLeave={() => {
-						document.body.style.cursor = 'default';
-					}}
+			{glitchButton ? (
+				<>
+					<RigidBody colliders="hull">
+						<mesh
+							geometry={nodes.ReactStack.geometry}
+							position={[-0.14, 1.02, -0.34]}
+						>
+							<meshBasicMaterial color={'black'}></meshBasicMaterial>
+						</mesh>
+					</RigidBody>
+				</>
+			) : (
+				<Float
+					speed={5}
+					rotationIntensity={0.1}
+					floatIntensity={2}
+					floatingRange={[0, 0.03]}
 				>
-					<meshBasicMaterial></meshBasicMaterial>
-				</animated.mesh>
-				{animThree && (
-					<Text
-						scale={0.1}
-						position={[1.61, 1.25, -0.35]}
+					<animated.mesh
+						raycast={meshBounds}
+						ref={reactStackRef}
+						name="ReactStack"
+						castShadow
+						receiveShadow
+						geometry={nodes.ReactStack.geometry}
+						material={materials.react}
+						position={[-0.14, 1.02, -0.34]}
+						scale={reactAnim.scale}
+						rotation-y={reactAnim.rotationY}
+						onPointerEnter={() => {
+							document.body.style.cursor = 'pointer';
+							if (!animNode && !animMongo && !animReact && !animThree) {
+								handleAnimDuration(setAnimReact);
+								setAnimReact(true);
+							}
+						}}
+						onPointerLeave={() => {
+							document.body.style.cursor = 'default';
+						}}
 					>
-						Three.js
-					</Text>
-				)}
-			</Float> */}
+						<meshBasicMaterial
+							toneMapped={false}
+							color={[0.4, 1, 5]}
+						></meshBasicMaterial>
+					</animated.mesh>
+					{animReact && (
+						<Text
+							scale={0.1}
+							position={[-0.14, 1.25, -0.34]}
+						>
+							React
+						</Text>
+					)}
+				</Float>
+			)}
+
 			{glitchButton ? (
 				<>
 					<RigidBody colliders="hull">

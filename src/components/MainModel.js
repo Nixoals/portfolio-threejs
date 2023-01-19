@@ -9,6 +9,7 @@ import { Physics, RigidBody } from '@react-three/rapier';
 import Stack from './Stack';
 import Screen from './Screen';
 import Button from './Button';
+import PowerUnit from './PowerUnit';
 
 export default function ModelV2({ glitchButton, setGlitchButton }) {
 	const { nodes, materials } = useGLTF('/models/room.gltf');
@@ -81,6 +82,7 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 					glitchButton={glitchButton}
 					setGlitchButton={setGlitchButton}
 				></Stack>
+				<PowerUnit glitchButton={glitchButton}></PowerUnit>
 				{glitchButton ? (
 					<>
 						<RigidBody>
