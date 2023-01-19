@@ -286,7 +286,6 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 					maxWidth={10}
 					textAlign="center"
 					color={'red'}
-					font="./fonts/font.woff"
 				>
 					KERNEL PANIC
 				</Text>
