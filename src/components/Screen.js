@@ -66,10 +66,6 @@ export default function Screen({ animation }) {
 						handleLeave();
 					}
 				}}
-				onPointerLeave={(event) => {
-					console.log(event);
-				}}
-				onPointerMissed={handleLeave}
 			>
 				<Html
 					transform
