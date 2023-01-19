@@ -36,13 +36,14 @@ export default function Screen({ animation }) {
 					z: z,
 				},
 				{
-					x: -7.15,
-					y: 7.19,
-					z: 7.81,
-					duration: 0.9,
+					x: -6.15,
+					y: 8.19,
+					z: 9.81,
+					duration: 1.1,
 				}
 			);
 		}
+		// -6.15, 8.19, 9.81
 		setIsEnter(false);
 		camera.updateProjectionMatrix();
 		camera.updateMatrix();
