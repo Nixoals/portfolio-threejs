@@ -25,7 +25,6 @@ export default function Model({ glitchButton }) {
 					castShadow
 					receiveShadow
 					geometry={nodes.powerUnitLight.geometry}
-					material={nodes.powerUnitLight.material}
 					position={[6.23, 0.47, -5.14]}
 				>
 					<meshBasicMaterial
@@ -65,4 +64,4 @@ export default function Model({ glitchButton }) {
 	);
 }
 
-useGLTF.preload('/powerUnit.gltf');
+useGLTF.preload('/models/powerUnit.gltf');

@@ -91,9 +91,7 @@ export default function STack({ glitchButton, setGlitchButton }) {
 						onPointerLeave={() => {
 							document.body.style.cursor = 'default';
 						}}
-					>
-						<meshBasicMaterial></meshBasicMaterial>
-					</animated.mesh>
+					></animated.mesh>
 					{animThree && (
 						<Text
 							scale={0.1}
@@ -130,7 +128,6 @@ export default function STack({ glitchButton, setGlitchButton }) {
 						castShadow
 						receiveShadow
 						geometry={nodes.ReactStack.geometry}
-						material={materials.react}
 						position={[-0.14, 1.02, -0.34]}
 						scale={reactAnim.scale}
 						rotation-y={reactAnim.rotationY}
@@ -193,7 +190,6 @@ export default function STack({ glitchButton, setGlitchButton }) {
 							castShadow
 							receiveShadow
 							geometry={nodes.NodeTextStack.geometry}
-							material={materials['Material.002']}
 							position-x={0.07}
 							position-y={1.05}
 							position-z={nodeAnim.positionNodeText}
@@ -220,7 +216,6 @@ export default function STack({ glitchButton, setGlitchButton }) {
 							castShadow
 							receiveShadow
 							geometry={nodes.NodeBaseStack.geometry}
-							material={materials.Nodegreen}
 							position={[0.06, 1.06, -0.5]}
 							scale={nodeAnim.scale}
 							rotation-y={nodeAnim.rotationY}
@@ -276,7 +271,6 @@ export default function STack({ glitchButton, setGlitchButton }) {
 							castShadow
 							receiveShadow
 							geometry={nodes.MongoDBStatck.geometry}
-							material={materials.mongoDB}
 							position={[1.35, 1.05, -0.49]}
 							scale={mongoAnim.scale}
 							rotation-y={mongoAnim.rotationY}

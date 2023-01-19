@@ -104,7 +104,6 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 						castShadow
 						receiveShadow
 						geometry={nodes.Desk.geometry}
-						material={materials.desk}
 						position={[0.36, 0.51, -0.3]}
 					>
 						<meshMatcapMaterial matcap={material}></meshMatcapMaterial>
@@ -194,7 +193,6 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 							castShadow
 							receiveShadow
 							geometry={nodes.textWebD.geometry}
-							material={nodes.textWebD.material}
 							position={[0.8, 1.5, -0.79]}
 						>
 							<meshStandardMaterial
@@ -208,7 +206,6 @@ export default function ModelV2({ glitchButton, setGlitchButton }) {
 							castShadow
 							receiveShadow
 							geometry={nodes.TextNG.geometry}
-							material={nodes.TextNG.material}
 							position={[0.81, 1.66, -0.79]}
 						>
 							<meshBasicMaterial

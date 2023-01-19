@@ -56,7 +56,6 @@ export default function Screen({ animation }) {
 				castShadow
 				receiveShadow
 				geometry={nodes.Screen.geometry}
-				material={nodes.Screen.material}
 				position={[0.76, 1.11, -0.48]}
 				onPointerEnter={() => {
 					if (animation) {

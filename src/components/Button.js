@@ -39,7 +39,6 @@ export default function Model({ setGlitchButton }) {
 				castShadow
 				receiveShadow
 				geometry={nodes.ButtonCapot.geometry}
-				material={nodes.ButtonCapot.material}
 				position={[1.45, 0.87, -0.17]}
 				rotation-x={capotMove}
 				onClick={(event) => {
